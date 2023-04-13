@@ -1,0 +1,43 @@
+<?php 
+$payments = $this->payments;
+print_r($payments);
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<table border="1" width="100%">
+		<tr bgcolor="pink">
+			<td colspan="3"><h3>MANAGE PAYMENT</h3></td>
+			<td colspan="2" align="center"><button><a href="<?php echo $this->getUrl('add','payment') ?>">ADD</a></button></td>
+		</tr>
+		<tr>
+			<?php foreach($this->getColumn() as $key =>$value): ?>
+			<th><?php echo $column['title']; ?></th>
+			<th><?php endforeach; ?></th>
+		</tr>
+		<tr>
+			<th>Payment ID</th>
+			<th>Name</th>
+			<th>Status</th>
+			<th>EDIT</th>
+			<th>DELETE</th>
+		</tr>
+		<?php foreach($payments as $row): ?>
+		<tr>
+			<td><?php echo $row->payment_id ?></td>
+			<td><?php echo $row->name ?></td>
+			<td><?php echo $row->status ?></td>
+			<td><a href="<?php echo $this->getUrl('edit','payment',['payment_id'=>$row->payment_id]) ?>">EDIT</a></td>
+			<td><a href="<?php echo $this->getUrl('delete','payment',['payment_id'=>$row->payment_id]) ?>">DELETE</a></td>
+		</tr>
+	    <?php endforeach; ?>
+
+	</table>
+</body>
+</html> 

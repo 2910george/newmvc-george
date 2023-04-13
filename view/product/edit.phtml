@@ -1,0 +1,50 @@
+<?php 
+require_once 'view/html/header.phtml';
+$product = $this->products;
+?>
+
+	<form name="f1" method="POST" action="<?php echo $this->getUrl('save','product',['product_id'=>$product->product_id])?>">
+		<table width="50%" bgcolor="pink">	
+			<tr>
+				<td ><h3>MANAGE PRODUCT</h3></td>
+				<td ><button><a href="index.php?c=product&a=grid">CANCEL<a></button></td>
+				<td ><button type="submit" >SAVE</button></td>
+			</tr>
+	    </table>
+		<table width="50%" border="1">
+			<tr>
+				<td>Name</td>
+				<td><input type="text" name="product[name]" value="<?php echo $product->name ?>"></input></td>
+			</tr>
+			<tr>
+				<td>Sku</td>
+				<td><input type="text" name="product[sku]" value="<?php echo $product->sku ?>"></input></td>
+			</tr>
+			<tr>
+				<td>Cost</td>
+				<td><input type="text" name="product[cost]" value="<?php echo $product->cost ?>"></input></td>
+			</tr>
+			<tr>
+				<td>Price</td>
+				<td><input type="text" name="product[price]" value="<?php echo $product->price ?>"></input></td>
+			</tr>
+			<tr>
+				<td>Quantity</td>
+				<td><input type="text" name="product[quantity]" value="<?php echo $product->quantity ?>"></input></td>
+			</tr>
+			<tr>
+				<td>discription</td>
+				<td><input type="text" name="product[discription]" value="<?php echo $product->discription ?>"></input></td>
+			</tr>
+			<tr>
+				<td>status</td>
+				<td align="left">
+					<select name="product[status]" align="right">
+						<option value="<?php echo $product->status ?>"><?php echo $product->status ?></option>
+						<option value="AVAILABLE">AVAILABLE</option>
+						<option value="INAVAILABLE">INAVAILABLE</option>
+					</select>
+				</td>
+			</tr>
+			</table>
+    </form>

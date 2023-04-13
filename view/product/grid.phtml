@@ -1,0 +1,49 @@
+<?php 
+$products = $this->products;
+
+?>
+	<table width="100%" border="1">
+		<tr bgcolor="pink">
+			<td colspan="11"><h3>Product_List</h3></td>
+			<td colspan="2" align="center"><button><h3><a href="<?php echo $this->getUrl('add','product')?>">ADD</a></h3></button></td> 
+		<tr>
+
+		<tr>
+			<?php foreach($this->getColumn() as $key => $column):?>
+			<th><?php echo $column['title']; ?></th>
+		    <?php endforeach; ?>
+		</tr>
+		<tr>
+			<th>Product ID</th>
+			<th>Name</th>
+			<th>Sku</th>
+			<th>cost</th>
+			<th>price</th>
+			<th>quantity</th>
+			<th>description</th>
+			<th>status</th>
+			<th>inserted_at</th>
+			<th>MEDIA</th>
+			<th>EDIT</th>
+			<th>DELETE</th>
+		</tr>
+		<?php foreach($products as $row){
+			?>
+		<tr>
+			<td><?php echo $row->product_id ?></td>
+			<td><?php echo $row->name ?></td>
+			<td><?php echo $row->sku ?></td>
+			<td><?php echo $row->cost ?></td>
+			<td><?php echo $row->price ?></td>
+			<td><?php echo $row->quantity ?></td>
+			<td><?php echo $row->discription ?></td>
+			<td><?php echo $row->status ?></td>
+			<td><?php echo $row->inserted_at ?></td>
+			<td><a href ="<?php echo $this->getUrl('edit','product',) ?>">MEDIA</a></td>
+			<td><a href = "<?php echo $this->getUrl('edit','product',['product_id'=>$row->product_id]) ?>">EDIT</a></td>
+			<td><a href = "<?php echo $this->getUrl('delete','product',['product_id'=>$row->product_id]) ?>">DELETE</a></td>
+		</tr>
+		<?php } ?>	
+	</table>
+
+	

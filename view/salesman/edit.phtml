@@ -1,0 +1,85 @@
+<?php 
+
+$salesmans = $this->salesmans;
+$address = $this->address;
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<form method="POST" action="<?php echo $this->getUrl('save','salesman',['salesman_id'=>$salesmans->salesman_id])?>">
+		<table border="1" width="50%">
+			<tr bgcolor="pink">
+				<td width="30%"><h3>EDIT SALESMAN</h3></td>
+				<td width="10%" align="center"><button><h3>CANCEL</h3></a></button></td>
+				<td width="10%" align="center"><button type="submit"><h3>ADD</h3></button></td>
+			</tr>
+		<table width="50%" border="1">
+			<tr>
+				<td>First Name</td>
+				<td><input type="text" name="salesman[first_name]" value="<?php echo $salesmans->first_name ?>"></input></td>
+			</tr>
+			<tr>
+				<td>Last Name</td>
+				<td><input type="text" name="salesman[last_name]" value="<?php echo $salesmans->last_name ?>"></input></td>
+			</tr>
+			<tr>
+				<td>E-Mail</td>
+				<td><input type="text" name="salesman[email]" value="<?php echo $salesmans->email ?>"></input></td>
+			</tr>
+			<tr>
+				<td>Mobile</td>
+				<td><input type="text" name="salesman[mobile]" value="<?php echo $salesmans->mobile ?>"></input></td>
+			</tr>
+			<tr>
+				<td>gender</td>
+				<td><select>
+						<option value="salesman['gender']"><?php echo $salesmans->gender ?></option>
+						<option value="MALE">MALE</option>
+						<option value="FEMALE">FEMALE</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>Status</td>
+				<td>
+					<select name="status" >
+						<option value="<?php echo $salesmans->status ?>"><?php echo $salesmans->status ?></option>
+						<option value="AVAILABLE">AVAILABLE</option>
+						<option value="INAVAILABLE">INAVAILABLE</option>
+					</select>
+				</td>
+			</tr>
+			<tr bgcolor="pink">
+				<th>SALESMAN INFO</th>
+			</tr>
+			<tr>
+				<td>Adress</td>
+				<td><input type="text" name="Address[address]" value="<?php echo $address->address ?>"></input></td>
+			</tr>
+			<tr>
+				<td>City</td>
+				<td><input type="text" name="Address[city]" value="<?php echo $address->city ?>"></input></td>
+			</tr>
+			<tr>
+				<td>Zipcode</td>
+				<td><input type="text" name="Address[zipcode]" value="<?php echo $address->zipcode ?>"></input></td>
+			</tr>
+			<tr>
+				<td>Country</td>
+				<td><input type="text" name="Address[country]" value="<?php echo $address->country ?>"></input></td>
+			</tr>
+			<tr>
+				<td>State</td>
+				<td><input type="text" name="Address[state]" value="<?php echo $address->state ?>"></input></td>
+			</tr>	
+		</table>
+	</form>
+</body>
+</html>

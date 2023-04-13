@@ -1,0 +1,42 @@
+<?php 
+
+require_once 'view/html/header.phtml';
+
+$payments = $this->payments;
+
+?>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<form method="POST" action="<?php echo $this->getUrl('save','payment',['payment_id'=>$payments->payment_id])?>">
+		<table width="50%" border="1">
+			<tr bgcolor="pink">
+				<td width="30%"><h3>ADD PAYMENT</h3></td>
+				<td width="10%" align="center"><h3>CANCEL</h3></td>
+				<td width="10%" align="center"><button type="submit">SAVE</button></td>
+			</tr>
+			<tr>
+				<td>Name</td>
+				<td><input type="text" name="payment[name]" value="<?php echo $payments->name ?>"></input></td>
+			</tr>
+			<tr>
+				<td>Status</td>
+				<td>
+					<select name="payment[status]">
+						<option value="<?php echo $payments->status ?>"><?php echo $payments->status ?></option>
+						<option value="AVAILABLE">AVAILABLE</option>
+						<option value="INAVAILABLE">INAVAILABLE</option>
+					</select>
+				</td>
+			</tr>
+		</table>
+	</form>
+</body>
+</html>

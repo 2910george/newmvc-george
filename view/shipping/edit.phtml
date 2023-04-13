@@ -1,0 +1,32 @@
+<?php 
+$shippings = $this->shippings;
+
+?>
+
+	<form method="POST" action="<?php echo $this->getUrl('save','shipping')?>">
+		<table width="50%" border="1">
+			<tr bgcolor="pink">
+				<td width="30%"><h3>ADD SHIPPING</h3></td>
+				<td width="10%" align="center"><h3>CANCEL</h3></td>
+				<td width="10%" align="center"><button type="submit">SAVE</button></td>
+			</tr>
+			<tr>
+				<td>Name</td>
+				<td><input type="text" name="shipping[name]" value="<?php echo $shippings->name ?>"></input></td>
+			</tr>
+			<tr>
+				<td>Status</td>
+				<td>
+					<select name="shipping[status]">
+					<option value="<?php echo $shippings->status ?>"><?php echo $shippings->status ?></option>
+					<option value="AVAILABLE">AVAILABLE</option>
+					<option value="INAVAILABLE">INAVAILABLE</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>AMOUNT</td>
+				<td><input type="text" name="shipping[amount]" value="<?php echo $shippings->amount ?>"></input></td>
+			</tr>
+		</table>
+	</form>

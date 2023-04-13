@@ -1,0 +1,40 @@
+<?php 
+
+$venders = $this->venders;
+?>
+	<table width="100%" border="1">
+		<tr bgcolor="pink">
+			<td colspan="10"><h3>MANAGE VENDER</h3></td>
+			<td colspan="2" align="center"><a href="<?php echo $this->getUrl('add','vender') ?>"><button><h3>ADD</h3></button></a></td>
+		</tr>
+		<tr>
+			<th>First Name</th>
+			<th>Last Name</th>
+			<th>E-Mail</th>
+			<th>Mobile</th>
+			<th>Gender</th>
+			<th>Status</th>
+			<th>Company</th>
+			<th>Inserted_At</th>
+			<th>Adress</th>
+			<th>City</th>
+			<th>EDIT</th>
+			<th>DELETE</th>
+		</tr>
+		<?php foreach($venders as $vender): ?>
+		<tr>
+			<td><?php echo $vender->first_name ?></td>
+			<td><?php echo $vender->last_name ?></td>
+			<td><?php echo $vender->email ?></td>
+			<td><?php echo $vender->mobile ?></td>
+			<td><?php echo $vender->gender ?></td>
+			<td><?php echo $vender->status ?></td>
+			<td><?php echo $vender->company ?></td>
+			<td><?php echo $vender->inserted_at ?></td>
+			<td><?php echo $vender->address ?></td>
+			<td><?php echo $vender->city ?></td>
+			<td><a href="<?php echo $this->getUrl('edit','vender',['vendor_id'=>$vender->vendor_id]) ?>">EDIT</a></td>
+			<td><a href="<?php echo $this->getUrl('edit','vender',['vendor_id'=>$vender->vendor_id]) ?>">DELETE</a></td>
+		</tr>
+	    <?php endforeach; ?>
+	</table>

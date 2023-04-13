@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style>
+           .div{
+           		border: 1px solid black;
+           		height: 30px;
+           		width: 100%;
+           		background-color:purple;
+           		padding: 30px;
+           		margin: 90px;
+           }
+           .span{
+           		margin: 40px;
+           		background-color: silver;
+
+           }
+
+	</style>
+</head>
+
+</html>

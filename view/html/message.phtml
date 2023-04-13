@@ -1,0 +1,19 @@
+<?php 
+require_once 'model/core/url.php';
+require_once 'model/core/message.php';
+
+$messageModel = new model_core_message();
+$messages = $messageModel->getMessages();
+
+if($messages){
+	foreach($messages as $type => $message){
+		 echo "<p class='{$type}'>";
+		 echo $message;
+		 echo "</p>";
+	}
+}
+
+$messageModel->clearMessages();
+$url = new model_core_url();
+
+?>

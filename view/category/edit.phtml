@@ -1,0 +1,45 @@
+<?php 
+
+$categorys = $this->getCategory();
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<form method="POST" action="index.php?c=category&a=update"></form>
+	<table width="50%" border="1">
+		<tr>
+			<td bgcolor="pink" width="50%"><h3>ADD CATEGORY</h3></td>
+			<td bgcolor="pink" align="center" width="10%"><h3><a href="index.php?c=category&a=grid">CANCEL</a></h3></td>
+			<td bgcolor="pink" align="center" width="10%"><button type="submit"><h3>SAVE</h3></button></td>
+		</tr>
+	</table>
+	<table border="1" width="50%">
+		<?php foreach($categorys as $category) {?>
+		<tr>
+			<td>Category Name</td>
+			<td><input type="text" name="name" value="<?php echo $category['name'] ?>"></input></td>
+		</tr>
+		<tr>
+			<td>Discription</td>
+			<td><input type="text" name="discription" value="<?php echo $category['description'] ?>"></input></td>
+		</tr>
+		<tr>
+			<td>Status</td>
+			<td>
+				<select>
+					<option value="<?php echo $category['status']?>"><?php echo $category['status'] ?></option>
+					<option value="AVAILABLE">AVAILABLE</option>
+					<option value="INAVAILABLE">INAVAILABLE</option>
+				</select>
+			</td>
+		</tr>
+	   <?php } ?>
+	</table>
+
+</body>
+</html>

@@ -1,0 +1,40 @@
+<?php 
+$attributes = $this->attributes;
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<table></table>
+	<table width="100%" border="1">
+		<tr>
+			<th>attribute_id</th>
+			<th>entity_type_id</th>
+			<th>code</th>
+			<th>backend_type</th>
+			<th>name</th>
+			<th>status</th>
+			<th>backend_model</th>
+			<th>input_type</th>
+		</tr>
+		<?php foreach($attributes as $attribute){ ?>
+		<tr>
+			<td><?php echo $attribute->attribute_id ?></td>
+			<td><?php echo $attribute->entity_type_id ?></td>
+			<td><?php echo $attribute->code ?></td>
+			<td><?php echo $attribute->backend_type ?></td>
+			<td><?php echo $attribute->name ?></td>
+			<td><?php echo $attribute->status ?></td>
+			<td><?php echo $attribute->backend_model ?></td>
+			<td><?php echo $attribute->input_type ?></td>
+		</tr>
+	    <?php } ?>
+	</table>
+</body>
+</html>

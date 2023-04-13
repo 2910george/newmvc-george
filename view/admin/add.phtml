@@ -1,0 +1,46 @@
+<?php
+$admins = $this->getData('admins');
+
+?> 
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<form method="POST" action="<?php echo $this->getUrl('save','admin',['admin_id'=>$admins->admin_id]) ?>">
+		<table border="1" width="50%"> 
+			<tr>
+				<th>User</th>
+				<td><input type="text" name="admin[user]" value="<?php echo $admins->user ?>"></input></td>
+			<tr>
+
+			<tr>	
+				<th>Email</th>
+				<td><input type="text" name="admin[email]" value="<?php echo $admins->email ?>"></input></td>
+			</tr>
+
+			<tr>
+				<th>Password</th>
+				<td><input type="text" name="admin[password]" value="<?php echo $admins->password ?>"></input></td>
+			</tr>
+
+			<tr>
+				<th>status</th>
+				<td>
+					<select name="admin[status]">
+						<option>ACTIVE</option>
+						<option>INACTIVE</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td colspan="2" align="center"><button type="submit">SAVE</button></td>
+			</tr>
+
+		</table>
+    </form>
+</body>
+</html>

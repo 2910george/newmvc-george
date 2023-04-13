@@ -1,0 +1,52 @@
+<?php 
+
+require_once 'view/html/header.php';
+require_once 'model/core/request.php';
+
+$request = new model_core_request();
+
+$product_id = $request->getParam('product_id');
+
+?>
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<form method="POST" action="index.php?c=media&a=insert" enctype="multipart/form-data">
+		<table width="100%" border="1">
+			<tr>
+				<td>MEDIA ADD</td>
+				<td><button type="submit">SAVE</button></td>
+			</tr>
+		</table>
+		<table width="100%" border="1">
+			<tr>
+				<td>PRODUCT ID</td>
+				<td><input type="text" name="media[product_id]" value="<?php echo $product_id ?>"></input></td>
+			</tr>
+			<tr>
+				<td>NAME</td>
+				<td><input type="text" name="media[name]"></input></td>
+			</tr>
+			<tr>
+				<td>IMAGE</td>
+				<td><input type="file" name="media[image]"></input></td>
+			</tr>
+			<tr>
+				<td>STATUS</td>
+				<td>
+					<select name="media[status]">
+						<option value="AVAILABLE">AVAILABLE</option>
+						<option value="INAVAILABLE">INAVAILABLE</option>
+					</select>
+				</td>
+			</tr>
+		</table>
+	</form>
+
+</body>
+</html>

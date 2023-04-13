@@ -1,0 +1,59 @@
+<?php 
+
+//require_once 'view/html/header.php';
+
+$categorys = $this->getCategory();
+print_r($categorys);
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<table width="100%" border="1">
+		<tr bgcolor="pink">
+			<td colspan="4">MANAGE CUSTOMER</td>
+			<td colaspan="" align="center"><button type="submit"><a href="index.php?c=category&a=add">ADD</button></a></td>
+		</tr>
+		<tr>
+			<th>category_id</th>
+			<th>Name</th>
+			<th>Discription</th>
+			<th>Status</th>
+			<th>EDIT</th>
+			<th>DELETE</th>
+		</tr>
+		<?php foreach($categorys as $category) {?>
+		<tr>
+			<td><?php echo $category['category_id'] ?></td>
+			<td><?php 
+					if($category['parent_id']==0){
+						echo $category['name'];
+					}
+					else{
+					    foreach($categorys as $sub1){
+					    	if($sub1['category_id']==$category['parent_id']){
+
+					    	      	echo $sub1['name']."=>".$category['name'];
+					    			
+					    		}
+					    	}
+					 
+					    }
+                    
+		         ?></td>
+			<td><?php echo $category['description'] ?></td>
+			<td><?php echo $category['status'] ?></td>
+			<td><a href="index.php?c=category&a=edit&category_id=<?php echo $category['category_id'] ?>">EDIT</a></td>
+			<td><a href="index.php?c=category&a=delete&category_id=<?php echo $category['category_id'] ?>">DELETE<a></td>
+		</tr>
+	    <?php } ?>
+	</table>
+
+</body>
+</html>

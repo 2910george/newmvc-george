@@ -1,0 +1,56 @@
+<?php 
+require_once 'model/core/url.php';
+require_once 'model/core/message.php';
+
+$messageModel = new model_core_message();
+$messages = $messageModel->getMessages();
+
+if($messages){
+	foreach($messages as $type => $message){
+		 echo "<p class='{$type}'>";
+		 echo $message;
+		 echo "</p>";
+	}
+}
+
+$messageModel->clearMessages();
+$url = new model_core_url();
+
+?>
+<head>
+	<style type="text/css">
+           
+           .div{			
+           		border: 1px solid black;
+           		height: 30px;
+           		background-color:skyblue;
+           		padding: 30px;
+           	}
+           	.success{
+           		background-color: lightblue;
+           		display: block;
+           		font-variant: bold;
+           		font-weight:5 ;
+           		padding: 5px;
+           		margin: 2px;
+
+           	}
+           	.failure{
+
+           	}
+           	.notice{
+
+           	}
+
+		
+	</style>
+</head>
+	<div class="div">
+		<span class="span"><a href="<?php echo $url->getUrl('grid','product') ?>"><font color="red" size="5px">product</font></a></span>
+		<span class="span"><a href="<?php echo $url->getUrl('grid','customer') ?>"><font color="red" size="5px">customer</font></a></span>
+		<span class="span"><a href="<?php echo $url->getUrl('grid','salesman') ?>"><font color="red" size="5px">salesman</font></a></span>
+		<span class="span"><a href="<?php echo $url->getUrl('grid','vender') ?>"><font color="red" size="5px">vender</font></a></span>
+		<span class="span"><a href="<?php echo $url->getUrl('grid','shipping') ?>"><font color="red" size="5px">shipping</font></a></span>
+		<span class="span"><a href="<?php echo $url->getUrl('grid','payment') ?>"><font color="red" size="5px">payment</font></a></span>
+		<span class="span"><a href="<?php echo $url->getUrl('grid','category') ?>"><font color="red" size="5px">category</font></a></span>
+	</div>

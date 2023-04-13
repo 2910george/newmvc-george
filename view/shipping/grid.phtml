@@ -1,0 +1,43 @@
+<?php 
+$shippings = $this->shippings;
+?>
+	<table border="1" width="100%">
+		<tr bgcolor="pink">
+			<td colspan="4"><h3>MANAGE Shipping</h3></td>
+			<td colspan="2" align="center"><button><a href="<?php echo $this->getUrl('add','shipping')?>">ADD</a></button></td>
+		</tr>
+		<tr>
+			<?php foreach($this->getColumn() as $key =>$column):?>
+			<th><?php echo $column['title'] ?></th>
+		    <?php endforeach;?>
+		    <?php foreach($this->getAction() as $key => $action):?>
+		    <th><?php echo $action['title'] ?></th>
+		    <?php endforeach;?>
+		</tr>
+		<?php foreach($shippings as $row): ?>
+		<tr>
+			<?php foreach($this->getColumn() as $key=>$value):?>
+			<td><?php echo $this->getColumnValue($row,$key);?></td>
+		    <?php endforeach; ?>
+		</tr>
+	    <?php endforeach;?>
+		<tr>
+			<th>Shipping ID</th>
+			<th>Name</th>
+			<th>Status</th>
+			<th>Amount</th>
+			<th>EDIT</th>
+			<th>DELETE</th>
+		</tr>
+		<?php foreach($shippings as $row): ?>
+		<tr>
+			<td><?php echo $row->shipping_id ?></td>
+			<td><?php echo $row->name ?></td>
+			<td><?php echo $row->status ?></td>
+			<td><?php echo $row->amount ?></td>
+			<td><a href="<?php echo $this->getUrl('edit','shipping',['shipping_id'=>$row->shipping_id])?>">EDIT</a></td>
+			<td><a href="<?php echo $this->getUrl('delete','shipping',['shipping_id'=>$row->shipping_id])?>">DELETE</a></td>
+		</tr>
+	    <?php endforeach; ?>
+
+	</table> 

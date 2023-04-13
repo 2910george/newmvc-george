@@ -1,0 +1,52 @@
+<?php 
+
+$venders = $this->venders;
+?>
+	<form method="POST" action="index.php?c=vender&a=update">
+		<table width="50%" border="1">
+			<tr bgcolor="pink">
+				<td width="30%"><h3>MANAGE CUSTOMER</h3></td>
+				<td width="10%" align="center"><h3><a href="index.php?c=vender&a=grid">CANCEL</a></h3></td>
+				<td width="10%" align="center"><a><button type="submit"><h3>SAVE</h3></button></a></td>
+			</tr>
+		</table>
+		<table width="50%" border="1">
+			<tr>
+				<td>VENDOR ID</td>
+				<td><input type="text" name="vender[vendor_id]" value="<?php echo $venders->vendor_id ?>"></input></td>
+			</tr>
+			<tr>
+				<td>First Name</td>
+				<td><input type="text" name="vender[first_name]" value="<?php echo $venders->first_name ?>"></input></td>
+			</tr>
+			<tr>
+				<td>Last Name</td>
+				<td><input type="text" name="vender[last_name]" value="<?php echo $venders->last_name ?>"></input></td>
+			</tr>
+			<tr>
+				<td>E-Mail</td>
+				<td><input type="text" name="vender[email]" value="<?php echo $venders->email ?>"></input></td>
+			</tr>
+			<tr>
+				<td>Mobile</td>
+				<td><input type="text" name="vender[mobile]" value="<?php echo $venders->mobile ?>"></input></td>
+			</tr>
+			<tr>
+				<td>Gender</td>
+				<td><input type="text" name="vender[gender]" value="<?php echo $venders->gender ?>"></input></td>
+			</tr>
+			<tr>
+				<td>Comapany</td>
+				<td><input type="text" name="vender[company]" value="<?php echo $venders->company ?>"></input></td>
+			</tr>
+			<tr>
+				<td>Status</td>
+				<td>
+					<select name="vender[status]">
+						<option value="AVAILABLE">AVAILABLE</option>
+						<option value="INAVAILABLE">INAVAILABLE</option>
+					</select>
+				</td>
+			</tr>
+		</table>
+	</form>

@@ -1,0 +1,54 @@
+<?php
+
+require_once 'view/html/header.php';
+
+$medias = $this->getMedia();
+
+
+?>
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<form name="f1" method="POST" >
+	<table width="100%" border="1">
+		<tr bgcolor="pink">
+			<td colspan="6"><h3>MEDIA</h3></td>
+			<td align="center"><a href="index.php?c=media&a=add&product_id=<?php echo $medias[0]['product_id'] ?>"><h3>ADD</h3></td>
+			<td align="center"><button type="submit" onclick="f1.action='index.php?c=media&a=update'"><h3>UPDATE</h3></button></td>
+			<td align="center"><button type="submit" onclick="f1.action='index.php?c=media&a=delete'"><h3>DELETE</h3></button></td>
+        </tr>
+		<tr>
+			<th>PRODUCT_ID</th>
+			<th>MEDIA ID</th>
+			<th>Name</th>
+			<th>Image</th>
+			<th>Base</th>
+			<th>Thumb</th>
+			<th>Small</th>
+			<th>Gallery</th>
+			<th>DELETE</th>
+		</tr>
+		<?php foreach($medias as $media) { ?>
+		<tr>
+			<td><?php echo $media['product_id'] ?></td>
+			<td><?php echo $media['media_id'] ?></td>
+			<td><?php echo $media['name'] ?></td>
+			<td><image src="view/media/<?php echo $media['image'] ?>"><?php echo $media['image'] ?></image></td>
+			<td><input type="radio" name="base" value="<?php echo $media['media_id'] ?>" <?php if($media['base'] == 1) echo "checked = 'checked'" ?>></input></td>
+			<td><input type="radio" name="thumb" value="<?php echo $media['media_id'] ?>" <?php if($media['thumb'] == 1) echo "checked = 'checked'" ?>></input></td>
+			<td><input type="radio" name="small" value="<?php echo $media['media_id'] ?>" <?php if($media['small'] == 1) echo "checked = 'checked'" ?>></input></td>
+			<td><input type="radio" name="gallary[]" value="<?php echo $media['media_id'] ?>" <?php if($media['gallary'] == 1) echo "checked = 'checked'" ?>></input></td>
+			<td><input type="checked" name="" value="<?php echo $media['media_id'] ?>">DELETE</input></td>
+		</tr>
+	    <?php } ?>
+
+	</table>
+    </form>
+</body>
+</html>
